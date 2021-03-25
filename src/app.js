@@ -5,11 +5,9 @@ const app = express();
 app.use(morgan("dev"));
 
 const sayHello = (req, res, next) => {
-  const name = req.query.name;
-  const content = name ? `Hello, ${name}!` : "Hello!";
-  res.send(content);
+  res.send("Hello!");
 };
 
-app.use("/hello", sayHello);
+app.get("/hello", sayHello);
 
 module.exports = app;
